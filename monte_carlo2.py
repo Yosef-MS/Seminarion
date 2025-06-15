@@ -32,9 +32,21 @@ discount_rate = 0.07
 plant_life = 22.5 # from literature average
 npv = -capex + np.sum([(revenue - opex) / (1 + discount_rate)**t for t in np.arange(1, plant_life+1.00, 1)], axis=0)
 
-# Plot the histogram
-plt.hist(npv, bins=50, edgecolor='k')
-plt.xlabel('NPV ($)')
-plt.ylabel('Frequency')
-plt.title('Monte Carlo Simulation of NPV')
+# Create the histogram and get bin info
+counts, bins, patches = plt.hist(npv, bins=30, edgecolor='black')
+
+# Color bars based on whether they are below or above NPV = 0
+for bin_left, patch in zip(bins[:-1], patches):
+    if bin_left < 0:
+        patch.set_facecolor('red')
+    else:
+        patch.set_facecolor('green')
+
+# Add labels and show
+plt.axvline(x=0, color='black', linestyle='--', label='NPV = 0')
+plt.xlabel("NPV")
+plt.ylabel("Frequency")
+plt.title("Monte Carlo Simulation of Project NPV")
+plt.legend()
+plt.grid(True)
 plt.show()
