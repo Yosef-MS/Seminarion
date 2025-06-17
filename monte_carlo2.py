@@ -28,7 +28,7 @@ revenue = elec_prod_kWh_y *elec_tarrif
 print(np.average(revenue))
 
 # Simple NPV calculation 
-discount_rate = 0.07
+discount_rate = np.random.normal(loc=0.065, scale=0.035, size=n_simulations) # working assumption from Ruslana
 plant_life = 22.5 # from literature average
 npv = -capex + np.sum([(revenue - opex) / (1 + discount_rate)**t for t in np.arange(1, plant_life+1.00, 1)], axis=0)
 
