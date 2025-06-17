@@ -20,7 +20,7 @@ capex = np.random.normal(loc=689, scale=257, size=n_simulations) * plant_size * 
 opex = capex/10
 
 # Variable assumptions
-cal_val_waste = np.random.normal(loc=10, scale=2.5, size=n_simulations)
+cal_val_waste = np.random.normal(loc=11.48, scale=0.60, size=n_simulations)
 elec_effic = np.random.normal(loc=0.25, scale=0.05, size=n_simulations)
 cap_fac = np.random.normal(loc=0.841, scale=0.0822, size=n_simulations)
 
