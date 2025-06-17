@@ -58,7 +58,7 @@ counts, bins, patches = plt.hist(npv, bins=bins, edgecolor='black')
 
 # Color bars
 for bin_left, bin_right, patch in zip(bins[:-1], bins[1:], patches):
-    if bin_left < 0:
+    if bin_left < -5:
         patch.set_facecolor('red')
     else: 
         patch.set_facecolor('green')
