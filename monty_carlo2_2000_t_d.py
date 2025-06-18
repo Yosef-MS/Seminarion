@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Number of simulations
 n_simulations = 10000
-plant_size = 1000  # tonnes/day
+plant_size = 2000  # tonnes/day
 
 # Fixed parameters
 cal_val_waste_assume = 10  # GJ/t
