@@ -24,7 +24,7 @@ cal_val_waste = np.random.normal(loc=11.48, scale=0.60, size=n_simulations)
 elec_effic = np.random.normal(loc=0.25, scale=0.05, size=n_simulations)
 cap_fac = np.random.normal(loc=0.841, scale=0.0822, size=n_simulations)
 
-# Revenue
+# Revenue 
 elec_tariff = 0.64 / 3.62  # USD/kWh
 elec_prod_MWh_y = cal_val_waste * plant_size * elec_effic * 365 * cap_fac / 3.6
 elec_prod_kWh_y = elec_prod_MWh_y * 1000
