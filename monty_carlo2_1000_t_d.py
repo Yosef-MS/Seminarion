@@ -29,14 +29,14 @@ cap_fac = np.random.normal(loc=0.841, scale=0.0822, size=n_simulations)
 elec_tariff = 0.64 / 3.5  # USD/kWh
 elec_prod_MWh_y = cal_val_waste * plant_size * elec_effic * 365 * cap_fac / 3.6
 elec_prod_kWh_y = elec_prod_MWh_y * 1000
-revenue = elec_prod_kWh_y * elec_tariff + 11312598.71 #the extra revenue in comparison
+revenue = elec_prod_kWh_y * elec_tariff + 7541732 #the extra revenue in comparison
 #to landfill USD/y
 
 print("Average annual revenue (USD):", np.mean(revenue))
 
 # NPV calculation
 discount_rate = np.random.normal(loc=0.065, scale=0.035, size=n_simulations)
-plant_life = 22
+plant_life = 23
 npv = -capex + np.sum(
     [(revenue - opex) / (1 + discount_rate)**t for t in range(1, plant_life + 1)],
     axis=0

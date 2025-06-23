@@ -6,9 +6,9 @@ n_simulations = 10000
 plant_size = 1500  # tonnes/day
 
 # Fixed parameters
-cal_val_waste_assume = 10  # GJ/t
+cal_val_waste_assume = 11.48  # GJ/t
 elec_effic_assume = 0.25
-cap_fac_assumed = 0.85
+cap_fac_assumed = 0.84
 
 # Plant power rating (MWh/year)
 plant_power_rating = (plant_size * cal_val_waste_assume * elec_effic_assume *
@@ -16,8 +16,8 @@ plant_power_rating = (plant_size * cal_val_waste_assume * elec_effic_assume *
 print("Plant power rating (MWh/y):", plant_power_rating)
 
 # CAPEX and OPEX
-capex = np.random.normal(loc=689, scale=257, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
-opex = capex/10
+capex = np.random.normal(loc=657, scale=285, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
+opex = np.random.normal(loc=65.7, scale=28.5, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
 
 # Variable assumptions
 cal_val_waste = np.random.normal(loc=11.48, scale=0.60, size=n_simulations)
@@ -25,10 +25,10 @@ elec_effic = np.random.normal(loc=0.25, scale=0.05, size=n_simulations)
 cap_fac = np.random.normal(loc=0.841, scale=0.0822, size=n_simulations)
 
 # Revenue
-elec_tariff = 0.64 / 3.62  # USD/kWh
+elec_tariff = 0.64 / 3.5  # USD/kWh
 elec_prod_MWh_y = cal_val_waste * plant_size * elec_effic * 365 * cap_fac / 3.6
 elec_prod_kWh_y = elec_prod_MWh_y * 1000
-revenue = elec_prod_kWh_y * elec_tariff
+revenue = elec_prod_kWh_y * elec_tariff + 11312599
 print("Average annual revenue (USD):", np.mean(revenue))
 
 # NPV calculation
@@ -67,7 +67,7 @@ for bin_left, bin_right, patch in zip(bins[:-1], bins[1:], patches):
 plt.axvline(x=0, color='black', linestyle='--', label='NPV = 0')
 plt.xlabel("Net Present Value (USD)")
 plt.ylabel("Frequency")
-plt.title("NPV - 1500 t/d")
+plt.title("NPV Total Benefit - 1500 t/d")
 plt.legend()
 
 # Add bold percentage text in plot
