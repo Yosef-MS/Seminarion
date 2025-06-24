@@ -33,7 +33,7 @@ print("Average annual revenue (USD):", np.mean(revenue))
 
 # NPV calculation
 discount_rate = np.random.normal(loc=0.065, scale=0.035, size=n_simulations)
-plant_life = 23
+plant_life = 22
 npv = -capex + np.sum(
     [(revenue - opex) / (1 + discount_rate)**t for t in np.arange(1, plant_life + 1)],
     axis=0
