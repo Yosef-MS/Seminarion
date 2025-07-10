@@ -16,8 +16,9 @@ plant_power_rating = (plant_size * cal_val_waste_assume * elec_effic_assume *
 print("Plant power rating (MWh/y):", plant_power_rating)
 
 # CAPEX and OPEX
-capex = np.random.normal(loc=657, scale=285, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
-opex = np.random.normal(loc=65.7, scale=28.5, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
+capex = np.random.normal(loc=660.69, scale=215.04, size=n_simulations) * plant_size * cap_fac_assumed*365 #USD/t*y * t/d * d/y
+opex = np.random.normal(loc=66.07, scale=21.50, size=n_simulations)* plant_size * cap_fac_assumed*365 #OPEX is 10% CAPEX
+#as taught by Indian review
 
 # Variable assumptions
 cal_val_waste = np.random.normal(loc=11.48, scale=0.60, size=n_simulations)
